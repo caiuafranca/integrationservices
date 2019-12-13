@@ -1,0 +1,982 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/10/2019 10:11:23 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MSEDGEWIN10"
+  DTS:CreatorName="MSEDGEWIN10\IEUser"
+  DTS:DTSID="{C1D6170D-6DAF-4BB4-8CC0-719E98ABB593}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="CSV_to_SQL"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{F77FC4D4-0D23-4B0C-AF52-A041FEABB89D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SC_CSV_LOAD]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{C25ACA31-940C-4936-ACF5-64CA45E9D861}"
+      DTS:ObjectName="SC_CSV_LOAD">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="C:\Users\IEUser\Desktop\NF_POS.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_ESTABELECIMENTO"
+              DTS:DTSID="{FCADBA6C-865D-4CBA-A9F6-F8E4F406052C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="POS_NUM"
+              DTS:DTSID="{9029853A-6C49-42A0-8875-C2ACCDAC0E6A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TRANS_NUM"
+              DTS:DTSID="{D6D65219-ACA0-4BC4-9A09-25B729B1C3CA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATA"
+              DTS:DTSID="{67D69AA4-AB52-4BCD-9D6A-7EBE36C5E8A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TEMPO"
+              DTS:DTSID="{59381D2C-2DD8-4A5F-B402-E05BFBA77CA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HORA"
+              DTS:DTSID="{6DA93D8B-9EDC-46E5-8B4C-2600287F9235}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MINUTO"
+              DTS:DTSID="{023DD44D-425F-4F3B-838F-2E6AD00E1262}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEGUNDO"
+              DTS:DTSID="{9B50E758-E65D-4F73-932A-30B6D0B1D128}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_TIPO"
+              DTS:DTSID="{9E5D195C-307E-4BE2-AB48-68206B886EE1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_OPERADOR"
+              DTS:DTSID="{1D8FC2C9-DBAD-4012-8842-C5BE390BE673}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VALOR_TOTAL"
+              DTS:DTSID="{9DD67900-3A4E-4EE7-9AB2-5515171050B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Column 11"
+              DTS:DTSID="{04E53AFB-5B77-4932-909D-E40C651DFDDD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CSV_to_SQL_Transformacao"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2F1EADFA-1BF6-449D-ABC8-6B16FD62C781}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CSV_to_SQL_Transformacao"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CSV_to_SQL_Transformacao\CSV"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="CSV"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CSV_to_SQL_Transformacao\CSV.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SC_CSV_LOAD]"
+                  connectionManagerRefId="Package.ConnectionManagers[SC_CSV_LOAD]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_ESTABELECIMENTO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_ESTABELECIMENTO]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_ESTABELECIMENTO]"
+                      name="ID_ESTABELECIMENTO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[POS_NUM]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[POS_NUM]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[POS_NUM]"
+                      name="POS_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[TRANS_NUM]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[TRANS_NUM]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[TRANS_NUM]"
+                      name="TRANS_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[DATA]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[DATA]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[DATA]"
+                      name="DATA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[TEMPO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[TEMPO]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[TEMPO]"
+                      name="TEMPO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[HORA]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[HORA]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[HORA]"
+                      name="HORA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[MINUTO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[MINUTO]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[MINUTO]"
+                      name="MINUTO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[SEGUNDO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[SEGUNDO]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[SEGUNDO]"
+                      name="SEGUNDO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_TIPO]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_TIPO]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_TIPO]"
+                      name="ID_TIPO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_OPERADOR]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_OPERADOR]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_OPERADOR]"
+                      name="ID_OPERADOR"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[VALOR_TOTAL]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[VALOR_TOTAL]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[VALOR_TOTAL]"
+                      name="VALOR_TOTAL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[Column 11]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      length="50"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[Column 11]"
+                      name="Column 11"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_ESTABELECIMENTO]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="ID_ESTABELECIMENTO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[POS_NUM]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="POS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[TRANS_NUM]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="TRANS_NUM" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[DATA]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="DATA" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[TEMPO]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="TEMPO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[HORA]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="HORA" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[MINUTO]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="MINUTO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[SEGUNDO]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="SEGUNDO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_TIPO]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="ID_TIPO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[ID_OPERADOR]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="ID_OPERADOR" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[VALOR_TOTAL]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="VALOR_TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].ExternalColumns[Column 11]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="Column 11" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CSV_to_SQL_Transformacao\Dts"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Dts"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input].Columns[ID_ESTABELECIMENTO]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ID_ESTABELECIMENTO"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_ESTABELECIMENTO]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input].Columns[POS_NUM]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="POS_NUM"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[POS_NUM]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input].Columns[DATA]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DATA"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[DATA]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input].Columns[VALOR_TOTAL]"
+                      cachedCodepage="65001"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VALOR_TOTAL"
+                      lineageId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[VALOR_TOTAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[ID_LOJA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[ID_LOJA]"
+                      name="ID_LOJA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[ID_ESTABELECIMENTO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[POS_NUM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[POS_NUM]"
+                      name="POS_NUM"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[POS_NUM]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[DT_EMISSAO]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[DT_EMISSAO]"
+                      name="DT_EMISSAO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[DATA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[VALOR_TOTAL]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[VALOR_TOTAL]"
+                      name="VALOR_TOTAL"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output].Columns[VALOR_TOTAL]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[NF_POS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{AE94D47F-1FEF-495A-A4C9-D1480CF0BD75}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MSEDGEWIN10.SISTEMA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_LOJA]"
+                      cachedDataType="i4"
+                      cachedName="ID_LOJA"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_LOJA]"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[ID_LOJA]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DT_EMISSAO]"
+                      cachedDataType="date"
+                      cachedName="DT_EMISSAO"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DT_EMISSAO]"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[DT_EMISSAO]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[POS_NUM]"
+                      cachedDataType="i4"
+                      cachedName="POS_NUM"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[POS_NUN]"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[POS_NUM]" />
+                    <inputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VALOR_TOTAL]"
+                      cachedDataType="decimal"
+                      cachedName="VALOR_TOTAL"
+                      externalMetadataColumnId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_VENDA]"
+                      lineageId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output].Columns[VALOR_TOTAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_LOJA]"
+                      dataType="i4"
+                      name="ID_LOJA" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      name="DT_EMISSAO" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[POS_NUN]"
+                      dataType="i4"
+                      name="POS_NUN" />
+                    <externalMetadataColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CSV_to_SQL_Transformacao.Paths[Data Conversion Output]"
+              endId="Package\CSV_to_SQL_Transformacao\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\CSV_to_SQL_Transformacao\Dts.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\CSV_to_SQL_Transformacao.Paths[Flat File Source Output]"
+              endId="Package\CSV_to_SQL_Transformacao\Dts.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\CSV_to_SQL_Transformacao\CSV.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\CSV_to_SQL_Transformacao"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CSV_to_SQL_Transformacao">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\CSV_to_SQL_Transformacao\OLE DB Destination"
+          TopLeft="487,102" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\CSV_to_SQL_Transformacao\Dts"
+          TopLeft="315.5,97.5" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\CSV_to_SQL_Transformacao\CSV"
+          TopLeft="119,97" />
+        <EdgeLayout
+          Id="Package\CSV_to_SQL_Transformacao.Paths[Flat File Source Output]"
+          TopLeft="217,118.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.5,0"
+              Start="0,0"
+              End="91,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="91,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CSV_to_SQL_Transformacao.Paths[Data Conversion Output]"
+          TopLeft="410.5,120.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.5,0"
+              Start="0,0"
+              End="69,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CSV_to_SQL_Transformacao\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

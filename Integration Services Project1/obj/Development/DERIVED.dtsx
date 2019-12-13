@@ -1,0 +1,606 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/11/2019 3:57:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MSEDGEWIN10"
+  DTS:CreatorName="MSEDGEWIN10\IEUser"
+  DTS:DTSID="{506FF3E9-F15E-4B00-B6E0-FE5380EA6D3C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DERIVED"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{19163AB6-71F0-483E-A43D-3B1AA39022FE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\AGRAGATE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DDBCC5C2-D2E2-4843-ADDA-EA7388469844}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="AGRAGATE"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\AGRAGATE\CONCATENAR CIDADE E UF"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="CONCATENAR CIDADE E UF"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input].Columns[CIDADE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="CIDADE"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CIDADE]" />
+                    <inputColumn
+                      refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input].Columns[UF]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="UF"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[UF]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Output].Columns[CIDADE_UF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="203"
+                      lineageId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Output].Columns[CIDADE_UF]"
+                      name="CIDADE_UF"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CIDADE]} + "-" + #{Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[UF]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">CIDADE + "-" + UF</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AGRAGATE\DESTINO CLIENTES DW"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DESTINO CLIENTES DW"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CLIENTES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AGRAGATE\DESTINO CLIENTES DW.Connections[OleDbConnection]"
+                  connectionManagerID="{3864C4EA-FD2A-48E2-A3EB-3BE6BAAAFDDC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MSEDGEWIN10.DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].Columns[CLIENTE_ID]"
+                      cachedDataType="i4"
+                      cachedName="CLIENTE_ID"
+                      externalMetadataColumnId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CLIENTE_ID]"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]" />
+                    <inputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].Columns[NM_FANTASIA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="NM_FANTASIA"
+                      externalMetadataColumnId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[NM_FANTASIA]"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[NM_FANTASIA]" />
+                    <inputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].Columns[STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="STATUS"
+                      externalMetadataColumnId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[STATUS]" />
+                    <inputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].Columns[CIDADE_UF]"
+                      cachedDataType="wstr"
+                      cachedLength="203"
+                      cachedName="CIDADE_UF"
+                      externalMetadataColumnId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE_UF]"
+                      lineageId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Output].Columns[CIDADE_UF]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CLIENTE_ID]"
+                      dataType="i4"
+                      name="CLIENTE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[NM_FANTASIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NM_FANTASIA" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[CIDADE_UF]"
+                      dataType="wstr"
+                      length="205"
+                      name="CIDADE_UF" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="STATUS" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\AGRAGATE\DESTINO CLIENTES DW.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\DESTINO CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\DESTINO CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\DESTINO CLIENTES DW.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SC_CLIENTES_ORIGIN"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[CLIENTES]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Connections[OleDbConnection]"
+                  connectionManagerID="{AE94D47F-1FEF-495A-A4C9-D1480CF0BD75}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MSEDGEWIN10.SISTEMA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE_ID]"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CLIENTE_ID]"
+                      name="CLIENTE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[NM_FANTASIA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[NM_FANTASIA]"
+                      length="200"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[NM_FANTASIA]"
+                      name="NM_FANTASIA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                      length="200"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[CIDADE]"
+                      name="CIDADE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[UF]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                      length="2"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[UF]"
+                      name="UF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      length="1"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].Columns[STATUS]"
+                      name="STATUS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[CLIENTE_ID]"
+                      dataType="i4"
+                      name="CLIENTE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[NM_FANTASIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="NM_FANTASIA" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[CIDADE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CIDADE" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[UF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="UF" />
+                    <externalMetadataColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="STATUS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[CLIENTE_ID]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[CLIENTE_ID]"
+                      name="CLIENTE_ID" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[NM_FANTASIA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[NM_FANTASIA]"
+                      name="NM_FANTASIA" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[CIDADE]"
+                      name="CIDADE" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[UF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[UF]"
+                      name="UF" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[STATUS]"
+                      name="STATUS" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\AGRAGATE.Paths[Derived Column Output]"
+              endId="Package\AGRAGATE\DESTINO CLIENTES DW.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\AGRAGATE.Paths[OLE DB Source Output]"
+              endId="Package\AGRAGATE\CONCATENAR CIDADE E UF.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\AGRAGATE\SC_CLIENTES_ORIGIN.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="131,42"
+          Id="Package\AGRAGATE"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\AGRAGATE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\AGRAGATE\SC_CLIENTES_ORIGIN"
+          TopLeft="23,66" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\AGRAGATE\CONCATENAR CIDADE E UF"
+          TopLeft="284.5,71.5" />
+        <EdgeLayout
+          Id="Package\AGRAGATE.Paths[OLE DB Source Output]"
+          TopLeft="209,89.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.5,0"
+              Start="0,0"
+              End="68,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="68,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="194,42"
+          Id="Package\AGRAGATE\DESTINO CLIENTES DW"
+          TopLeft="291,199" />
+        <EdgeLayout
+          Id="Package\AGRAGATE.Paths[Derived Column Output]"
+          TopLeft="389,113.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85.5"
+              Start="0,0"
+              End="0,78">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\AGRAGATE\SC_CLIENTES_ORIGIN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\AGRAGATE\DESTINO CLIENTES DW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

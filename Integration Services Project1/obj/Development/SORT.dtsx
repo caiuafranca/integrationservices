@@ -1,0 +1,622 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/11/2019 8:56:25 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MSEDGEWIN10"
+  DTS:CreatorName="MSEDGEWIN10\IEUser"
+  DTS:DTSID="{C7BD7AB9-601E-4EBB-BCAB-D9E25F732163}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="SORT"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{CEC11D5B-A1A8-418B-85D9-560CF8AD4238}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6E42D61C-59FA-4195-BF75-BF511418CCC9}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:DataRowsToSkip="1"
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\IEUser\Desktop\NFPOS_SORT.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ID_LOJA"
+              DTS:DTSID="{9BC5400E-6625-404B-A223-4A07D617090A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="133"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DT_EMISSAO"
+              DTS:DTSID="{AF926388-8E3D-47C5-991F-75F0CEE7C2DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="POS_NUN"
+              DTS:DTSID="{DD99120C-2673-4A29-9347-0ACD5320645E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:DataScale="2"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TOTAL_VENDA"
+              DTS:DTSID="{05960D12-AD7B-451B-B2AB-4987B7473C89}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\SORTED"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{90BE637E-9BCB-4EB5-8050-2AD5F91E678C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SORTED"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\SORTED\NEW"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="NEW">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SORTED\NEW.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\SORTED\NEW.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].Columns[ID_LOJA]"
+                      cachedDataType="i4"
+                      cachedName="ID_LOJA"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[ID_LOJA]"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[ID_LOJA]" />
+                    <inputColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].Columns[DT_EMISSAO]"
+                      cachedDataType="dbDate"
+                      cachedName="DT_EMISSAO"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[DT_EMISSAO]"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[DT_EMISSAO]" />
+                    <inputColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].Columns[POS_NUN]"
+                      cachedDataType="i4"
+                      cachedName="POS_NUN"
+                      cachedSortKeyPosition="-3"
+                      externalMetadataColumnId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[POS_NUN]"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[POS_NUN]" />
+                    <inputColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].Columns[TOTAL_VENDA]"
+                      cachedDataType="numeric"
+                      cachedName="TOTAL_VENDA"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      cachedSortKeyPosition="4"
+                      externalMetadataColumnId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[TOTAL_VENDA]"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[TOTAL_VENDA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[ID_LOJA]"
+                      dataType="i4"
+                      name="ID_LOJA" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      name="DT_EMISSAO" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[POS_NUN]"
+                      dataType="i4"
+                      name="POS_NUN" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\NEW.Inputs[Flat File Destination Input].ExternalColumns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\SORTED\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[NF_POS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\SORTED\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{AE94D47F-1FEF-495A-A4C9-D1480CF0BD75}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MSEDGEWIN10.SISTEMA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_LOJA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_LOJA]"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_LOJA]"
+                      name="ID_LOJA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DT_EMISSAO]"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[DT_EMISSAO]"
+                      name="DT_EMISSAO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[POS_NUN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[POS_NUN]"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[POS_NUN]"
+                      name="POS_NUN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_VENDA]"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_VENDA]"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ID_LOJA]"
+                      dataType="i4"
+                      name="ID_LOJA" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      name="DT_EMISSAO" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[POS_NUN]"
+                      dataType="i4"
+                      name="POS_NUN" />
+                    <externalMetadataColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_LOJA]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ID_LOJA]"
+                      name="ID_LOJA" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DT_EMISSAO]"
+                      name="DT_EMISSAO" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[POS_NUN]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[POS_NUN]"
+                      name="POS_NUN" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TOTAL_VENDA]"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\SORTED\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\SORTED\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\SORTED\Sort.Inputs[Sort Input].Columns[ID_LOJA]"
+                      cachedDataType="i4"
+                      cachedName="ID_LOJA"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_LOJA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORTED\Sort.Inputs[Sort Input].Columns[DT_EMISSAO]"
+                      cachedDataType="dbDate"
+                      cachedName="DT_EMISSAO"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[DT_EMISSAO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORTED\Sort.Inputs[Sort Input].Columns[POS_NUN]"
+                      cachedDataType="i4"
+                      cachedName="POS_NUN"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[POS_NUN]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">-3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\SORTED\Sort.Inputs[Sort Input].Columns[TOTAL_VENDA]"
+                      cachedDataType="numeric"
+                      cachedName="TOTAL_VENDA"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      lineageId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_VENDA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">4</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\SORTED\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\SORTED\Sort.Outputs[Sort Output].Columns[ID_LOJA]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[ID_LOJA]"
+                      name="ID_LOJA"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[ID_LOJA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORTED\Sort.Outputs[Sort Output].Columns[DT_EMISSAO]"
+                      dataType="dbDate"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[DT_EMISSAO]"
+                      name="DT_EMISSAO"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[DT_EMISSAO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORTED\Sort.Outputs[Sort Output].Columns[POS_NUN]"
+                      dataType="i4"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[POS_NUN]"
+                      name="POS_NUN"
+                      sortKeyPosition="-3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[POS_NUN]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\SORTED\Sort.Outputs[Sort Output].Columns[TOTAL_VENDA]"
+                      dataType="numeric"
+                      lineageId="Package\SORTED\Sort.Outputs[Sort Output].Columns[TOTAL_VENDA]"
+                      name="TOTAL_VENDA"
+                      precision="18"
+                      scale="2"
+                      sortKeyPosition="4">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output].Columns[TOTAL_VENDA]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\SORTED.Paths[OLE DB Source Output]"
+              endId="Package\SORTED\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\SORTED\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\SORTED.Paths[Sort Output]"
+              endId="Package\SORTED\NEW.Inputs[Flat File Destination Input]"
+              name="Sort Output"
+              startId="Package\SORTED\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="119,42"
+          Id="Package\SORTED"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\SORTED">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\SORTED\OLE DB Source"
+          TopLeft="71,88" />
+        <NodeLayout
+          Size="98,42"
+          Id="Package\SORTED\Sort"
+          TopLeft="262,85" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\SORTED\NEW"
+          TopLeft="388,85" />
+        <EdgeLayout
+          Id="Package\SORTED.Paths[Sort Output]"
+          TopLeft="360,106">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28,0"
+              Start="0,0"
+              End="20.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="20.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SORTED.Paths[OLE DB Source Output]"
+          TopLeft="221,107.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41,0"
+              Start="0,0"
+              End="33.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="33.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SORTED\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
